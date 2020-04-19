@@ -1,0 +1,10 @@
+@import "src/themes/_variables";
+.gp-header--title {
+  &-link {
+    text-decoration: none;
+  }
+  &-text {
+    color: $gp-white-elegant;
+    font-size: 25px;
+  }
+}
