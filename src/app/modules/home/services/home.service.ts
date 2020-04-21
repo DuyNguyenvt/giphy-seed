@@ -1,27 +1,33 @@
 import { Injectable } from '@angular/core';
 
+import { ReactService } from 'src/utils/Service/react.service';
+
 @Injectable({
   providedIn: 'root',
 })
-export class HomeService {
+export class HomeService extends ReactService {
   state: any;
   constructor() {
+    super();
     this.state = {
       homeMasterData: {
-        data: {
-          items: [
-            {
-              name: 'giphy131',
-            },
-            {
-              items: {
-                name: 'giphy2',
-              },
-            },
-          ],
+        searchGiphies: {
+          data: {},
+          isLoading: {},
         },
-        isLoading: false,
+        favorGiphies: {
+          data: {},
+        },
       },
+      giphyMasterData: {},
     };
   }
+
+  changeState(newState: any) {
+    this.state = newState;
+  }
+
+  // getState() {
+  //   return this.state;
+  // }
 }
