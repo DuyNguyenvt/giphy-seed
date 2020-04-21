@@ -1,3 +1,23 @@
 h1 {
   color: white !important;
 }
+.gp-card {
+  display: flex;
+  flex-wrap: wrap;
+}
+.gp-card--container {
+  margin: 20px;
+  width: calc(25% - 40px);
+  display: flex;
+  @media (max-width: 600px) {
+    width: calc(100% - 40px);
+  }
+}
+.gp-card--img {
+  width: 100%;
+  border-radius: 5px;
+}
+.gp-home--load-more {
+  text-align: center;
+  padding: 30px;
+}
