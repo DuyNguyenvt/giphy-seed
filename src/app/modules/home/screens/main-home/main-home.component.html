@@ -1,3 +1,11 @@
 <app-header class="app-header"></app-header>
-<p>this is the main home! Is that great 2</p>
-<button mat-raised-button color="warn">Warn</button>
+<div class="gp-card">
+  <div class="gp-card--container" *ngFor="let giphy of giphies$ | async">
+    <img class="gp-card--img" src="{{ giphy.images.downsized_large.url }}" />
+  </div>
+</div>
+<div class="gp-home--load-more">
+  <button classM mat-raised-button color="warn" (click)="loadGiphy()">
+    Load More
+  </button>
+</div>
