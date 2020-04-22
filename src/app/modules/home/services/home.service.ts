@@ -16,7 +16,7 @@ export class HomeService {
   defaultSearchKey: string = 'black pink';
 
   fetchData(params) {
-    const api = `http://api.giphy.com/v1/gifs/search?q=${
+    const api = `https://api.giphy.com/v1/gifs/search?q=${
       params.keyword || this.defaultSearchKey
     }&api_key=m78FKgk6mIvBbw3wR7zXTou9jubyEBme&limit=20&offset=${
       params.offset
