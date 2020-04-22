@@ -13,14 +13,26 @@ export class HomeService {
     count: 0,
     offset: 0,
   });
+  defaultSearchKey: string = 'black pink';
 
   fetchData(params) {
-    const api = `http://api.giphy.com/v1/gifs/search?q='black+pink'&api_key=m78FKgk6mIvBbw3wR7zXTou9jubyEBme&limit=20&offset=${params.offset}`;
+    const api = `http://api.giphy.com/v1/gifs/search?q=${
+      params.keyword || this.defaultSearchKey
+    }&api_key=m78FKgk6mIvBbw3wR7zXTou9jubyEBme&limit=20&offset=${
+      params.offset
+    }`;
+
+    let procResult = [];
     fetch(api)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
-        this.searchGiphies.next([...this.searchGiphies.value, ...result.data]);
+        if (params.keyword) {
+          procResult = result.data;
+          this.defaultSearchKey = params.keyword;
+        } else {
+          procResult = [...this.searchGiphies.value, ...result.data];
+        }
+        this.searchGiphies.next(procResult);
         this.pagination.next(result.pagination);
       });
   }

@@ -10,8 +10,14 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
 import { AngularMaterialModule } from 'src/app/modules/common/angularMaterial/angular-material.module';
 
 import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [MainHomeComponent, GiphyListComponent, HeaderComponent],
-  imports: [AngularMaterialModule, CommonModule, HomeRoutingModule],
+  imports: [
+    AngularMaterialModule,
+    CommonModule,
+    HomeRoutingModule,
+    ReactiveFormsModule,
+  ],
 })
 export class HomeModule {}

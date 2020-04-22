@@ -1,10 +1,28 @@
 @import "src/themes/_variables";
-.gp-header--title {
-  &-link {
-    text-decoration: none;
+.gp-header {
+  &--title {
+    &-link {
+      @media (max-width: 500px) {
+        display: none !important;
+      }
+      text-decoration: none;
+    }
+    &-text {
+      color: $gp-white-elegant;
+      font-size: 25px;
+    }
   }
-  &-text {
-    color: $gp-white-elegant;
-    font-size: 25px;
+  &--search {
+    &-box {
+      input {
+        border-radius: 4px 0 0 4px;
+      }
+      width: 40%;
+      display: flex;
+      align-items: center;
+      @media (max-width: 500px) {
+        width: 60%;
+      }
+    }
   }
 }
