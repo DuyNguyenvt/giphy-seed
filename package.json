@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "git-build": "ng build --prod --base-href https://duynguyenvt.github.io/giphy-seed/",
+    "git-deploy": "angular-cli-ghpages --dir=dist/ghipy-favorite-list"
   },
   "private": true,
   "dependencies": {

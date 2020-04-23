@@ -9,9 +9,15 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
 
 import { AngularMaterialModule } from 'src/app/modules/common/angularMaterial/angular-material.module';
 
-import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FavoriteGiphiesComponent } from './screens/favorite-giphies/favorite-giphies.component';
 @NgModule({
-  declarations: [MainHomeComponent, GiphyListComponent, HeaderComponent],
-  imports: [AngularMaterialModule, CommonModule, HomeRoutingModule],
+  declarations: [MainHomeComponent, GiphyListComponent, HeaderComponent, FavoriteGiphiesComponent],
+  imports: [
+    AngularMaterialModule,
+    CommonModule,
+    HomeRoutingModule,
+    ReactiveFormsModule,
+  ],
 })
 export class HomeModule {}

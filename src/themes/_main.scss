@@ -1,3 +1,4 @@
+@import "src/themes/_variables";
 * {
   padding: 0;
   margin: 0;
@@ -7,8 +8,35 @@
 html,
 body {
   height: 100%;
+  margin: 0;
 }
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@keyframes mymove {
+  0% {
+    right: -400px;
+  }
+  100% {
+    right: 0px;
+  }
+}
+.gp-snackbar {
+  max-width: 80vw !important;
+  position: absolute;
+  top: 0px;
+  animation-name: mymove;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  background: $gp-orange-childhood;
+  color: white;
+  button {
+    background: #ff6348;
+    color: white;
+  }
+}
+.gp-container--main {
+  margin-top: 70px;
 }

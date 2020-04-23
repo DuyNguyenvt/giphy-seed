@@ -1,6 +1,44 @@
 <a class="gp-header--title-link" [routerLink]="['/']">
   <div class="gp-header--title-text">My Giphy Store</div>
 </a>
-<a>
-  <button mat-raised-button color="warn">Store</button>
-</a>
+<div class="gp-header--search-box">
+  <div class="gp-input--form-group">
+    <input
+      class="gp-input gp-input--primary"
+      id="gp-header-search-input"
+      matInput
+      placeholder="search giphy"
+      aria-label="State"
+      [matAutocomplete]="auto"
+      [formControl]="optionCtrl"
+    />
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option
+        class="gp-input--mat-option"
+        *ngFor="let option of filteredOptions | async"
+        [value]="option.name"
+      >
+        <span>{{ option.name }}</span>
+      </mat-option>
+    </mat-autocomplete>
+  </div>
+  <button mat-raised-button color="warn" (click)="clickSearch()">
+    <mat-icon aria-hidden="false" aria-label="Example home icon"
+      >search</mat-icon
+    >
+  </button>
+</div>
+<div class="gp-header--tool">
+  <mat-icon
+    aria-hidden="false"
+    aria-label="Example home icon"
+    (click)="showModalInfo()"
+    >help</mat-icon
+  >
+  <mat-icon
+    aria-hidden="false"
+    aria-label="Example home icon"
+    (click)="routeToFavorite()"
+    >collections</mat-icon
+  >
+</div>

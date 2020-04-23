@@ -1,6 +1,8 @@
 // ! _header.scss
 app-header {
-  //   width: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
   height: 68px;
   background-color: #1976d2;
   padding: 16px;
@@ -8,4 +10,5 @@ app-header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  z-index: 1000;
 }

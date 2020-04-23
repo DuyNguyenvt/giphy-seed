@@ -1,3 +1,17 @@
+@import "src/themes/_variables";
+.gp-favorite {
+  &--title {
+    margin-top: 5px;
+    color: $gp-brown-red;
+    display: flex;
+    align-items: center;
+    mat-icon {
+      font-size: 1;
+      margin-right: 4px;
+    }
+  }
+}
+
 h1 {
   color: white !important;
 }
