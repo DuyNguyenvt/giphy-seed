@@ -1,13 +1,13 @@
 @import "_variables";
 .gp-input {
   width: 100%;
-  font-size: 16px;
+  font-size: 16px !important;
   &--form-group {
   }
   &--primary {
-    padding: 8px 12px;
+    padding: 8px 12px !important;
     border-radius: 5px;
-    border: none;
+    border: none !important;
   }
   &--mat-option {
     padding: 8px 12px;

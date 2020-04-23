@@ -1,0 +1,17 @@
+<h4 mat-dialog-title>Hi, Submit your info for best giphies ever!</h4>
+<div class="gp-modal--info-content" mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="data.email" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Phone</mat-label>
+    <input matInput [(ngModel)]="data.phone" />
+  </mat-form-field>
+</div>
+<div class="gp-modal--info-action" mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="closeModal()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="submitInfo(data)">
+    Submit
+  </button>
+</div>

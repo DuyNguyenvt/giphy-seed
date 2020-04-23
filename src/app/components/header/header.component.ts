@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { HomeService } from 'src/app/modules/home/services/home.service';
+import { ModalsService } from 'src/app/modules/modals/services/modals.service';
 import * as _ from 'lodash';
 import { map, startWith } from 'rxjs/operators';
 
@@ -31,7 +33,11 @@ export class HeaderComponent implements OnInit {
       name: 'Twice',
     },
   ];
-  constructor(private homeService: HomeService) {
+  constructor(
+    private homeService: HomeService,
+    private modalsService: ModalsService,
+    private router: Router
+  ) {
     this.filteredOptions = this.handleFilterOptions();
   }
 
@@ -42,6 +48,8 @@ export class HeaderComponent implements OnInit {
       (state) => state.name.toLowerCase().indexOf(filterValue) === 0
     );
   }
+
+  ngOnInit(): void {}
 
   handleFilterOptions = () => {
     return this.optionCtrl.valueChanges.pipe(
@@ -65,5 +73,11 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  showModalInfo() {
+    this.modalsService.openModalInfo();
+  }
+
+  routeToFavorite() {
+    this.router.navigate(['favorite']);
+  }
 }

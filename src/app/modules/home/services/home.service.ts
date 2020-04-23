@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject, BehaviorSubject, Observable } from 'rxjs';
+import { SnacksService } from 'src/app/modules/snack/services/snacks.service';
 
 import * as _ from 'lodash';
 
@@ -13,7 +14,10 @@ export class HomeService {
     count: 0,
     offset: 0,
   });
+  favoriteGiphies: BehaviorSubject<any> = new BehaviorSubject([]);
   defaultSearchKey: string = 'black pink';
+
+  constructor(private snacksService: SnacksService) {}
 
   fetchData(params) {
     const api = `https://api.giphy.com/v1/gifs/search?q=${
@@ -39,5 +43,21 @@ export class HomeService {
 
   getSearchGiphies() {
     return this.searchGiphies.asObservable();
+  }
+
+  addFavoriteGiphy(newGiphy) {
+    if (
+      !_.find(
+        this.favoriteGiphies.value,
+        (oneGiphy) => oneGiphy.id === newGiphy.id
+      )
+    ) {
+      this.favoriteGiphies.next([...this.favoriteGiphies.value, newGiphy]);
+      this.snacksService.openSnackDone('Done', 'Undo', () => {
+        this.favoriteGiphies.next(
+          this.favoriteGiphies.value.filter((item) => item.id !== newGiphy.id)
+        );
+      });
+    }
   }
 }

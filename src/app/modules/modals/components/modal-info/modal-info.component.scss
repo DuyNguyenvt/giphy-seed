@@ -1,0 +1,12 @@
+.gp-modal--info {
+  &-action {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 10px;
+  }
+  &-content {
+    mat-form-field {
+      width: 100%;
+    }
+  }
+}

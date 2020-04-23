@@ -1,5 +1,9 @@
+<!-- <p>favorite-giphies works!</p> -->
 <app-header class="app-header"></app-header>
 <div class="gp-container--main">
+  <h2 class="gp-favorite--title">
+    <mat-icon>favorite</mat-icon><span>Your favorite</span>
+  </h2>
   <div class="gp-card">
     <div
       class="gp-card--container"
@@ -8,19 +12,13 @@
     >
       <img class="gp-card--img" src="{{ giphy.images.downsized_large.url }}" />
       <div class="gp-card--tool">
-        <mat-icon class="gp-card--tool-like">thumb_up</mat-icon>
-        <mat-icon
-          *ngIf="checkIsFavor(giphy)"
-          class="gp-card--tool-love"
-          (click)="addFavorite(giphy)"
-          >favorite</mat-icon
-        >
+        <mat-icon class="gp-card--tool-love">remote</mat-icon>
       </div>
     </div>
   </div>
   <div class="gp-home--load-more">
-    <button classM mat-raised-button color="warn" (click)="loadGiphy()">
-      Load More
-    </button>
+    <!-- <button classM mat-raised-button color="warn" (click)="loadGiphy()">
+    Load More
+  </button> -->
   </div>
 </div>

@@ -22,9 +22,23 @@
       </mat-option>
     </mat-autocomplete>
   </div>
-  <button mat-raised-button color="warn" (click)="clickSearch()">Search</button>
+  <button mat-raised-button color="warn" (click)="clickSearch()">
+    <mat-icon aria-hidden="false" aria-label="Example home icon"
+      >search</mat-icon
+    >
+  </button>
 </div>
-
-<a>
-  <button mat-raised-button color="warn">Store</button>
-</a>
+<div class="gp-header--tool">
+  <mat-icon
+    aria-hidden="false"
+    aria-label="Example home icon"
+    (click)="showModalInfo()"
+    >help</mat-icon
+  >
+  <mat-icon
+    aria-hidden="false"
+    aria-label="Example home icon"
+    (click)="routeToFavorite()"
+    >collections</mat-icon
+  >
+</div>
